@@ -9,7 +9,7 @@ in your build.gradle file
 
     dependencies {
         // ...
-        compile 'com.xgc1986.android:ripplebutton:0.1.2'
+        compile 'com.xgc1986.android:ripplebutton:0.1.+'
     }
 
 ## Usage
@@ -96,7 +96,7 @@ with java:
                 getResources().getColor(android.R.color.holo_green_light)
         };
         final String[] texts = {"AWESOME", "THIS", "IS"};
-        
+
         final RippleButton rb2 = (RippleButton)findViewById(R.id.btn4);
         rb2.setColors(colors[1], colors[2]);
         rb2.setOnClickListener(new View.OnClickListener() {

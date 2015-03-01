@@ -37,11 +37,13 @@ public class RippleButton extends Button {
 
     public RippleButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        manageAttibuteSet(attrs);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public RippleButton(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+        manageAttibuteSet(attrs);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -64,7 +66,7 @@ public class RippleButton extends Button {
                                 new int[]{android.R.attr.state_pressed}
                         },
                         new int[]{
-                                color
+                                rippleColor
                         }
                 );
 
@@ -75,7 +77,6 @@ public class RippleButton extends Button {
         }
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public void setButtonColor(int color) {
         buttonColor = color;
         Drawable drawable = getBackground();
@@ -90,8 +91,11 @@ public class RippleButton extends Button {
             } else {
                 Log.w("RippleButton", "The Background must be a RippleDrawable instance.");
             }
+        } else if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            setBackground(getResources().getDrawable(R.drawable.btn_default_ripple));
+            getBackground().setColorFilter(color, PorterDuff.Mode.MULTIPLY);
         } else {
-            getBackground().setColorFilter(color, PorterDuff.Mode.SRC_IN);
+            getBackground().setColorFilter(color, PorterDuff.Mode.MULTIPLY);
         }
     }
 
@@ -117,14 +121,34 @@ public class RippleButton extends Button {
     public boolean onTouchEvent(MotionEvent event) {
         boolean b = super.onTouchEvent(event);
 
-        if (android.os.Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+        } else if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             if (event.getActionMasked() == event.ACTION_UP) {
                 if (buttonColor != 0) {
-                    getBackground().setColorFilter(buttonColor, PorterDuff.Mode.SRC_IN);
+                    getBackground().setColorFilter(buttonColor, PorterDuff.Mode.MULTIPLY);
+                } else {
+                    getBackground().clearColorFilter();
                 }
             } else {
                 if (rippleColor != 0) {
-                    getBackground().setColorFilter(rippleColor, PorterDuff.Mode.SRC_IN);
+                    if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                        setBackground(getResources().getDrawable(R.drawable.btn_default_normal_ripple));
+                    } else {
+                        setBackgroundDrawable(getResources().getDrawable(R.drawable.btn_default_normal_ripple));
+                    }
+                    getBackground().setColorFilter(rippleColor, PorterDuff.Mode.MULTIPLY);
+                }
+            }
+        } else {
+            if (event.getActionMasked() == event.ACTION_UP) {
+                if (buttonColor != 0) {
+                    getBackground().setColorFilter(buttonColor, PorterDuff.Mode.MULTIPLY);
+                } else {
+                    getBackground().clearColorFilter();
+                }
+            } else {
+                if (rippleColor != 0) {
+                    getBackground().setColorFilter(rippleColor, PorterDuff.Mode.MULTIPLY);
                 }
             }
         }

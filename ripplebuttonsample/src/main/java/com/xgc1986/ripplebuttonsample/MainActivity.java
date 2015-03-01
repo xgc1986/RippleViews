@@ -1,8 +1,10 @@
 package com.xgc1986.ripplebuttonsample;
 
 import android.app.Activity;
+import android.content.Context;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,9 +22,9 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         final int[] colors = {
-                getResources().getColor(android.R.color.holo_blue_light),
-                getResources().getColor(android.R.color.holo_red_light),
-                getResources().getColor(android.R.color.holo_green_light)
+                0xff33b5e5,
+                0xffff4444,
+                0xff99cc00
         };
         final String[] texts = {"AWESOME", "THIS", "IS"};
 
@@ -30,15 +32,13 @@ public class MainActivity extends ActionBarActivity {
         rb.setColors(colors[0], colors[2]);
 
         final RippleButton rb2 = (RippleButton)findViewById(R.id.btn4);
-        rb2.setColors(getResources().getColor(android.R.color.holo_red_light), getResources().getColor(android.R.color.holo_blue_light));
+        rb2.setColors(colors[1], colors[0]);
         rb2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 i = (i + 1) % 3;
                 rb2.setColors(colors[(i + 1) % 3], colors[(i + 2) % 3]);
                 rb2.setText(texts[i]);
-
-
             }
         });
     }

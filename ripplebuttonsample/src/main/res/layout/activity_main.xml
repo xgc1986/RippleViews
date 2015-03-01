@@ -23,9 +23,8 @@
         android:id="@+id/btn2"
         android:layout_below="@id/btn1"
         android:text="Android button modified in layout"
-        android:textColor="@android:color/white"
-        app:buttonColor="@android:color/black"
-        app:rippleColor="@android:color/white"/>
+        android:textColor="#ff000000"
+        app:rippleColor="#ff00ff00"/>
 
     <!-- Edited programatically -->
     <com.xgc1986.ripplebutton.widget.RippleButton
