@@ -110,3 +110,7 @@ with java:
     }
 ```
 
+## Other works
+<a href="https://github.com/xgc1986/ParallaxPagerTransformer" target="_blank">Parallax Pager Transformer</a>
+
+
