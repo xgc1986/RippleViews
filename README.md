@@ -1,7 +1,7 @@
 
 # RippleButton 
 
-RippleButton is for Android 15+
+RippleButton is for Android 10+
 
 RippleButton allows you to easily change the color of the button and the ripple effect without the need of creating styles or themes for every color you need.
 
@@ -18,7 +18,7 @@ in your build.gradle file
 
 ## Usage
 
-minSdkVersion 15 (The ripple effect only works on API >= 21)
+minSdkVersion 10 (The ripple effect only works on API >= 21)
 
 [![Android Arsenal](http://i.giphy.com/AxVvk2yAIHdcnMXDLW.gif)](demo)
 
