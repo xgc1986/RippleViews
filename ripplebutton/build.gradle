@@ -1,0 +1,125 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+def _siteUrl = 'https://github.com/xgc1986/RippleButton'
+def _gitUrl = 'https://github.com/xgc1986/RippleButton.git'
+def _issueUrl = 'https://github.com/xgc1986/RippleButton/issues'
+
+def _name = 'RippleButton'
+def _name2 = "Ripple Button"
+def _description = 'Easy Customizable Material Button'
+def _labels = ['android', 'material', 'ripple', 'button']
+def _version = "0.1.2"
+
+group = "com.xgc1986.android"                                            // Maven Group ID for the artifact
+version _version
+
+Properties properties = new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
+    defaultConfig {
+        minSdkVersion 10
+        targetSdkVersion 21
+        versionCode 1
+        versionName version
+    }
+    buildTypes {
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+}
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+
+    configurations = ['archives']
+
+    dryRun = false //Whether to run this as dry-run, without deploying
+    publish = true //If version should be auto published after an upload
+    pkg {
+        repo = 'maven'
+        name = _name
+        desc = _description
+        websiteUrl = _siteUrl
+        issueTrackerUrl = _issueUrl
+        vcsUrl = _gitUrl
+        licenses = ['Apache-2.0']
+        labels = _labels
+        publicDownloadNumbers = true
+
+        pkg {
+            repo = "maven"
+            name = _name
+            websiteUrl = _siteUrl
+            vcsUrl = _gitUrl
+            licenses = ["Apache-2.0"]
+            publish = true
+        }
+    }
+}
+
+install {
+    repositories.mavenInstaller {
+        // This generates POM.xml with proper parameters
+        pom {
+            project {
+                packaging 'aar'
+
+                name _name2
+                url _siteUrl
+
+                // Set your license
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'xgc1986'
+                        name 'Javier Gonzalez Cuadrado'
+                        email 'xgc1986@gmail.com'
+                    }
+                }
+                scm {
+                    connection _gitUrl
+                    developerConnection _gitUrl
+                    url _siteUrl
+
+                }
+            }
+        }
+    }
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
