@@ -85,26 +85,26 @@ with java:
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final int[] colors = {
+	// Change color programatically
+        RippleButton rb = (RippleButton)findViewById(R.id.btn3);
+        rb.setColors(getResources().getColor(android.R.color.holo_red_light), getResources().getColor(android.R.color.holo_blue_light));
+
+	// Toggle demo
+	final int[] colors = {
                 getResources().getColor(android.R.color.holo_blue_light),
                 getResources().getColor(android.R.color.holo_red_light),
                 getResources().getColor(android.R.color.holo_green_light)
         };
         final String[] texts = {"AWESOME", "THIS", "IS"};
-
-        RippleButton rb = (RippleButton)findViewById(R.id.btn3);
-        rb.setColors(colors[0], colors[2]);
-
+        
         final RippleButton rb2 = (RippleButton)findViewById(R.id.btn4);
-        rb2.setColors(getResources().getColor(android.R.color.holo_red_light), getResources().getColor(android.R.color.holo_blue_light));
+        rb2.setColors(colors[1], colors[2]);
         rb2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 i = (i + 1) % 3;
                 rb2.setColors(colors[(i + 1) % 3], colors[(i + 2) % 3]);
                 rb2.setText(texts[i]);
-
-
             }
         });
     }
