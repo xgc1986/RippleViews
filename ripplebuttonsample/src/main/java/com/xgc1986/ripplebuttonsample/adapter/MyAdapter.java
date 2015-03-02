@@ -69,9 +69,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                 R.drawable.f
         };
 
-
-        holder.mImageView.setImageBitmap(
-                decodeSampledBitmapFromResource(mContext.getResources(), images[position % images.length], 202, 135));
+        holder.mImageView.setImageResource(R.drawable.ripplebutton2);
+        //holder.mImageView.setImageBitmap(
+        //        decodeSampledBitmapFromResource(mContext.getResources(), images[position % images.length], 202, 135));
     }
 
     // Return the size of your dataset (invoked by the layout manager)
