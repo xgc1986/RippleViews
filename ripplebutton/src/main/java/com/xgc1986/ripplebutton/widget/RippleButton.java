@@ -4,20 +4,13 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
-import android.graphics.ColorFilter;
-import android.graphics.ColorMatrixColorFilter;
-import android.graphics.LightingColorFilter;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.graphics.drawable.InsetDrawable;
 import android.graphics.drawable.RippleDrawable;
-import android.graphics.drawable.StateListDrawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
-import android.view.View;
 import android.widget.Button;
 
 import com.xgc1986.ripplebutton.R;
@@ -27,8 +20,8 @@ public class RippleButton extends Button {
         super(context);
     }
 
-    private int buttonColor = 0;
-    private int rippleColor = 0;
+    private int buttonColor = 0xffd6d7d7;
+    private int rippleColor = 0x40000000;
 
     public RippleButton(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -83,11 +76,9 @@ public class RippleButton extends Button {
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             if (drawable instanceof RippleDrawable) {
-                RippleDrawable rippleDrawable = (RippleDrawable) drawable;
+                setBackground(getResources().getDrawable(R.drawable.btn_default_material));
 
-                InsetDrawable insetDrawable = (InsetDrawable) rippleDrawable.getDrawable(0);
-                GradientDrawable gradientDrawable = (GradientDrawable) insetDrawable.getDrawable();
-                gradientDrawable.setColor(color);
+                getBackground().setColorFilter(color, PorterDuff.Mode.MULTIPLY);
             } else {
                 Log.w("RippleButton", "The Background must be a RippleDrawable instance.");
             }
@@ -103,16 +94,11 @@ public class RippleButton extends Button {
 
         TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.RippleButton);
 
-        int nColor = a.getInt(R.styleable.RippleButton_buttonColor, 0);
-        int hColor = a.getInt(R.styleable.RippleButton_rippleColor, 0);
+        int nColor = a.getInt(R.styleable.RippleButton_buttonColor, buttonColor);
+        int hColor = a.getInt(R.styleable.RippleButton_rippleColor, rippleColor);
 
-        if (nColor != 0) {
-            setButtonColor(nColor);
-        }
-
-        if (hColor != 0) {
-            setRippleColor(hColor);
-        }
+        setButtonColor(nColor);
+        setRippleColor(hColor);
 
         a.recycle();
     }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="button_inset_vertical_material">6dp</dimen>
+    <dimen name="button_inset_horizontal_material">4dp</dimen>
+
+    <dimen name="control_corner_material">2dp</dimen>
+
+    <dimen name="button_padding_vertical_material">4dp</dimen>
+    <dimen name="button_padding_horizontal_material">8dp</dimen>
+</resources>

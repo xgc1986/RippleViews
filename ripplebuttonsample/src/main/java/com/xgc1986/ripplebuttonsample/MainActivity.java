@@ -7,7 +7,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.xgc1986.ripplebuttonsample.adapter.MyAdapter;
-
+import com.xgc1986.ripplebuttonsample.data.RippleButtonDemo;
+import com.xgc1986.ripplebuttonsample.demo.RippleButtonDemoActivity;
 
 public class MainActivity extends Activity {
 
@@ -29,11 +30,11 @@ public class MainActivity extends Activity {
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        String[] myDataset = new String[6];
+        RippleButtonDemo[] myDataset = {
+                new RippleButtonDemo(null, null, null, null, 0),
+                new RippleButtonDemo(RippleButtonDemoActivity.class, "Basic buttons demo", "RippleButton class", "https://github.com/xgc1986/RippleButton", R.drawable.ripplebutton)
+        };
 
-        for (int i = 0; i < myDataset.length; i++) {
-            myDataset[i] = "Card " + (i + 1);
-        }
         // specify an adapter (see also next example)
         mAdapter = new MyAdapter(myDataset);
         mRecyclerView.setAdapter(mAdapter);

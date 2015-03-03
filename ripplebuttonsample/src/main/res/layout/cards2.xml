@@ -9,6 +9,7 @@
     android:layout_height="wrap_content"
     android:layout_marginLeft="12dp"
     android:layout_marginRight="12dp"
+    android:layout_marginBottom="12dp"
     android:layout_marginTop="12dp"
     card_view:cardElevation="2dp"
     card_view:cardCornerRadius="2dp">
@@ -51,7 +52,6 @@
             </LinearLayout>
 
             <ImageView
-                android:contentDescription="Picture"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:src="@drawable/ripplebutton"
