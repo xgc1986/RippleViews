@@ -1,6 +1,6 @@
 # Change Log
 
-### *(2015-03-01)*
+### *(2015-03-03)*
  * Fix color propagation after changing the intent
  * Add RippleBackgroundHelper for future features
  * Improved sample
