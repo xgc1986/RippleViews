@@ -1,22 +1,19 @@
-package com.xgc1986.ripplebuttonsample.demo;
+package com.xgc1986.ripplebuttonsample.demo_v19;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.xgc1986.ripplebutton.widget.RippleButton;
 import com.xgc1986.ripplebuttonsample.R;
 
+import android.support.v7.app.ActionBarActivity;
 
-public class RippleButtonDemoActivity extends Activity {
+
+public class RippleButtonDemoV19Activity extends ActionBarActivity {
 
     private int i = 1;
 
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +27,7 @@ public class RippleButtonDemoActivity extends Activity {
         final String[] texts = {"AWESOME", "THIS", "IS"};
 
         RippleButton rb = (RippleButton) findViewById(R.id.btn3);
-        rb.setColors(colors[0], 0xffffffff);
+        rb.setColors(colors[0], colors[2]);
 
         final RippleButton rb2 = (RippleButton) findViewById(R.id.btn4);
         rb2.setColors(colors[1], colors[2]);
@@ -43,15 +40,7 @@ public class RippleButtonDemoActivity extends Activity {
             }
         });
 
-        if (getActionBar() != null) {
-            getActionBar().setDisplayHomeAsUpEnabled(true);
-            getActionBar().show();
-        }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        return true;
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override

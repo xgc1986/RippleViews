@@ -10,7 +10,7 @@ def _name = 'RippleButton'
 def _name2 = "Ripple Button"
 def _description = 'Easy Customizable Material Button'
 def _labels = ['android', 'material', 'ripple', 'button']
-def _version = "0.2.0"
+def _version = "0.3.0"
 
 group = "com.xgc1986.android"                                            // Maven Group ID for the artifact
 version _version

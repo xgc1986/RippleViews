@@ -1,0 +1,27 @@
+<resources>
+
+    <style name="GreenTheme" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="android:colorPrimary">@color/green_light</item>
+        <!--   darker variant for the status bar and contextual app bars -->
+        <item name="android:colorPrimaryDark">@color/green_dark</item>
+    </style>
+
+    <style name="BlueTheme" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="android:colorPrimary">@color/blue_light</item>
+        <!--   darker variant for the status bar and contextual app bars -->
+        <item name="android:colorPrimaryDark">@color/blue_dark</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="android:Theme.Material.Light">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="android:Theme.Material.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+
+</resources>

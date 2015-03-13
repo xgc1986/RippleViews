@@ -6,7 +6,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme.NoActionBar" >
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
@@ -16,12 +16,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".demo.RippleButtonDemoActivity"
-            android:label="@string/app_name" >
+            android:label="RippleButton Sample"
+            android:theme="@style/BlueTheme" >
+        </activity>
+        <activity
+            android:name=".demo.RippleImageButtonDemoActivity"
+            android:label="RippleImageButton Sample"
+            android:theme="@style/GreenTheme" >
         </activity>
 
+
+        <activity
+            android:name=".demo_v19.RippleButtonDemoV19Activity"
+            android:label="RippleButton Sample"
+            android:theme="@style/BlueTheme" >
+        </activity>
+        <activity
+            android:name=".demo_v19.RippleImageButtonDemoV19Activity"
+            android:label="RippleImageButton Sample"
+            android:theme="@style/GreenTheme" >
+        </activity>
     </application>
 
 </manifest>

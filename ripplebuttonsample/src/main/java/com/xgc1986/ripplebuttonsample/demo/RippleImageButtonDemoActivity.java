@@ -8,11 +8,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.xgc1986.ripplebutton.widget.RippleButton;
+import com.xgc1986.ripplebutton.widget.RippleImageButton;
 import com.xgc1986.ripplebuttonsample.R;
 
 
-public class RippleButtonDemoActivity extends Activity {
+public class RippleImageButtonDemoActivity extends Activity {
 
     private int i = 1;
 
@@ -20,26 +20,31 @@ public class RippleButtonDemoActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.ripple_button_demo);
+        setContentView(R.layout.ripple_image_button_demo);
 
         final int[] colors = {
                 0xff33b5e5,
                 0xffff4444,
                 0xff99cc00
         };
-        final String[] texts = {"AWESOME", "THIS", "IS"};
 
-        RippleButton rb = (RippleButton) findViewById(R.id.btn3);
+        RippleImageButton rb = (RippleImageButton) findViewById(R.id.btn3);
         rb.setColors(colors[0], 0xffffffff);
 
-        final RippleButton rb2 = (RippleButton) findViewById(R.id.btn4);
+        final int[] images = {
+                R.drawable.stop,
+                R.drawable.play,
+                R.drawable.pause,
+        };
+
+        final RippleImageButton rb2 = (RippleImageButton) findViewById(R.id.btn4);
         rb2.setColors(colors[1], colors[2]);
         rb2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 i = (i + 1) % 3;
                 rb2.setColors(colors[(i) % 3], colors[(i + 1) % 3]);
-                rb2.setText(texts[i]);
+                rb2.setImageResource(images[(i) % 3]);
             }
         });
 

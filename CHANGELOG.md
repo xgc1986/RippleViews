@@ -1,6 +1,14 @@
 # Change Log
 
 ### *(2015-03-03)*
+ * Added the apk of the demos (apk/RippleButtonSample.apk), sooner I will try to upload to the play store
+ * Added RippleImageButton (works axactly as RippleButton)
+ * Updated the sample with a new dessign :D
+ * Added RippleImageButton demo
+
+--------------
+
+### *(2015-03-03)*
  * Fix color propagation after changing the intent
  * Add RippleBackgroundHelper for future features
  * Improved sample

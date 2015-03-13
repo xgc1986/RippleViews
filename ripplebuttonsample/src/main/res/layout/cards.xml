@@ -54,7 +54,7 @@
                 android:contentDescription="Picture"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:src="@drawable/ripplebutton"
+                android:src="@drawable/ripple_button"
                 android:scaleType="centerCrop"
                 android:id="@+id/image"
                 android:layout_weight="1"/>
