@@ -13,7 +13,7 @@ in your build.gradle file
 
     dependencies {
         // ...
-        compile 'com.xgc1986.android:ripplebutton:0.2.0'
+        compile 'com.xgc1986.android:ripplebutton:0.3.0'
     }
 
 ## Usage
