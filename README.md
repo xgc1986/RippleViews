@@ -5,7 +5,7 @@ RippleButton is for Android 10+
 
 RippleButton allows you to easily change the color of the button and the ripple effect without the need of creating styles or themes for every color you need.
 
-RippleButton inherits from Button, it not generates any extra layouts and you can manage RippleButton instance as if it was an android Button.t
+RippleButton inherits from Button, it not generates any extra layouts and you can manage RippleButton instance as if it was an android Button.
 
 ## Installation
 
