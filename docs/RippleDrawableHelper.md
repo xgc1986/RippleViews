@@ -81,5 +81,5 @@ And look how easily you can create this views (Android Lollipop left, Android Je
 | Drawable createRippleDrawable(View v, int color, int drawableResource)  | In API 21+ returns a RippleDrawable with the ripple with the color assigned, in older versions returns a StateListDrawable, but when pressed it shows the drawable you assign (Ideal for images that work as buttons) |
 
 
-Next: [CHANGELOG](../Changelog.md)
-Prev: [Making views have ripple effect](RippleDrawableHelper.md)
+Next: [CHANGELOG](../CHANGELOG.md)<br>
+Prev: [RippleImageButton Widget](RippleImageButton.md)

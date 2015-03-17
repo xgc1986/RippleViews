@@ -117,5 +117,5 @@ And modifying a style:
 ```
 
 
-Next: [Making views have ripple effect](RippleDrawableHelper.md)
+Next: [Making views have ripple effect](RippleDrawableHelper.md)<br>
 Prev: [RippleButton Widget](RippleButton.md)

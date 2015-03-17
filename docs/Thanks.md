@@ -10,5 +10,5 @@ And for finish, I have another android library
 Check it here [ParallaxPagerTransformer!](https://github.com/xgc1986/ParallaxPagerTransformer)
 
 
-Next: [LICENSE](LICENSE.md)
-Prev: [CHANGELOG](../Changelog.md)
+Next: [LICENSE](LICENSE.md)<br>
+Prev: [CHANGELOG](../CHANGELOG.md)

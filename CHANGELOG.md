@@ -34,5 +34,5 @@
  * Creat RippleButton
 
 
-Next: [Last words](docs/Thanks.md)
+Next: [Last words](docs/Thanks.md)<br>
 Prev: [Making views have ripple effect](docs/RippleDrawableHelper.md)

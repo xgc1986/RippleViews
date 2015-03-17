@@ -117,5 +117,5 @@ And modifying a style:
 ```
 
 
-Next: [RippleImageButton Widget](RippleImageButton.md)
+Next: [RippleImageButton Widget](RippleImageButton.md)<br>
 Prev: [README](../README.md)
