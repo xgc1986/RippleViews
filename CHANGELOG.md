@@ -1,5 +1,14 @@
 # Change Log
 
+### *(2015-03-17)*
+ * REMOVE GINGERBREAD COMPATIBLITY.
+ * Added customization with styles.
+ * Fix bugs with DrawableHelper and improve behaviour with previous Android versions.
+ * New Documentation
+ * Change Project name to RippleViews
+
+--------------
+
 ### *(2015-03-03)*
  * Added the apk of the demos (apk/RippleButtonSample.apk), sooner I will try to upload to the play store
  * Added RippleImageButton (works axactly as RippleButton)
@@ -23,3 +32,7 @@
 
 ### *(2015-02-28)*
  * Creat RippleButton
+
+
+Next: [Last words](docs/Thanks.md)
+Prev: [Making views have ripple effect](docs/RippleDrawableHelper.md)

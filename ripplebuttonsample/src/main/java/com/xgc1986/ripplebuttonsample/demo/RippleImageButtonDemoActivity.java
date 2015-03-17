@@ -11,8 +11,13 @@ import android.view.View;
 import com.xgc1986.ripplebutton.widget.RippleImageButton;
 import com.xgc1986.ripplebuttonsample.R;
 
-
 public class RippleImageButtonDemoActivity extends Activity {
+
+    public static String NAME = "RippleImageButton";
+    public static String DESCRIPTION = "";
+    public static String GITHUB = "https://github.com/xgc1986/RippleViews/blob/master/ripplebuttonsample/src/main/res/layout/ripple_image_demo.xml";
+    public static int IMAGE_RESOURCE = R.mipmap.ripple_imagebutton;
+    public static boolean JELLY = true;
 
     private int i = 1;
 
@@ -32,9 +37,9 @@ public class RippleImageButtonDemoActivity extends Activity {
         rb.setColors(colors[0], 0xffffffff);
 
         final int[] images = {
-                R.drawable.stop,
-                R.drawable.play,
-                R.drawable.pause,
+                R.mipmap.stop,
+                R.mipmap.play,
+                R.mipmap.pause,
         };
 
         final RippleImageButton rb2 = (RippleImageButton) findViewById(R.id.btn4);
@@ -61,15 +66,6 @@ public class RippleImageButtonDemoActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         onBackPressed();
 

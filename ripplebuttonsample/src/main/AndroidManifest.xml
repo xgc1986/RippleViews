@@ -26,17 +26,10 @@
             android:label="RippleImageButton Sample"
             android:theme="@style/GreenTheme" >
         </activity>
-
-
         <activity
-            android:name=".demo_v19.RippleButtonDemoV19Activity"
+            android:name=".demo.RippleDrawableHelperDemoActivity"
             android:label="RippleButton Sample"
             android:theme="@style/BlueTheme" >
-        </activity>
-        <activity
-            android:name=".demo_v19.RippleImageButtonDemoV19Activity"
-            android:label="RippleImageButton Sample"
-            android:theme="@style/GreenTheme" >
         </activity>
     </application>
 

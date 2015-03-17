@@ -1,6 +1,8 @@
 package com.xgc1986.ripplebuttonsample.adapter;
 
 import android.annotation.TargetApi;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -96,13 +98,8 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             holder.mImage.setImageResource(mDataset[position].mImageResource);
 
             /** github button */
-            Drawable githubDrawable = RippleDrawableHelper.createRippleDrawable(holder.mGithub, 0xfffafafa, 0xff0099cc);
-
-            if (android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN) {
-                holder.mGithub.setBackground(githubDrawable);
-            } else {
-                holder.mGithub.setBackgroundDrawable(githubDrawable);
-            }
+            Drawable githubDrawable = RippleDrawableHelper.createRippleDrawable(holder.mGithub, 0xff0099cc);
+            holder.mGithub.setBackground(githubDrawable);
 
             holder.mGithub.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -113,19 +110,31 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             });
 
             /** Demo button */
-            Drawable demoDrawable = RippleDrawableHelper.createRippleDrawable(holder.mContent, 0xfffafafa, 0xff0099cc);
-
-            if (android.os.Build.VERSION.SDK_INT > Build.VERSION_CODES.JELLY_BEAN) {
-                holder.mContent.setBackground(demoDrawable);
-            } else {
-                holder.mContent.setBackgroundDrawable(demoDrawable);
-            }
+            Drawable demoDrawable = RippleDrawableHelper.createRippleDrawable(holder.mContent, 0xff0099cc);
+            holder.mContent.setBackground(demoDrawable);
 
             holder.mContent.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(holder.mContent.getContext(), mDataset[position].getActivity());
-                    holder.mContent.getContext().startActivity(intent);
+
+                    Class<?> activity = mDataset[position].getActivity();
+
+                    if (activity != null) {
+                        Intent intent = new Intent(holder.mContent.getContext(), activity);
+                        holder.mContent.getContext().startActivity(intent);
+                    } else {
+                        new AlertDialog.Builder(v.getContext())
+                                .setTitle("ERROR")
+                                .setMessage("This demo does not work in your current android version")
+                                .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                    }
+                                })
+                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                .show();
+                    }
+
+
                 }
             });
 

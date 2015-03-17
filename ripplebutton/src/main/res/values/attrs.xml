@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <declare-styleable name="Theme">
+        <attr name="colorControlHighlight" format="color"/>
+        <attr name="colorButtonNormal" format="color"/>
+    </declare-styleable>
+
     <declare-styleable name="RippleButton">
         <attr name="rippleColor" format="color"/>
         <attr name="buttonColor" format="color"/>

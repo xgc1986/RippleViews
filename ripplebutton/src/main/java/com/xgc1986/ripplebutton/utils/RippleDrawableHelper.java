@@ -10,64 +10,83 @@ import android.view.View;
 
 public class RippleDrawableHelper {
 
-    //@TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public static Drawable createRippleDrawable(View v, int color, int rippleColor) {
+
+    public static Drawable createRippleDrawable(final View v, final int color) {
+        return createRippleDrawable(v, color, null);
+    }
+
+    public static Drawable createRippleDrawable(final View v, final int color, int drawableResource) {
+        return createRippleDrawable(v, color, v.getContext().getResources().getDrawable(drawableResource));
+    }
+
+    public static Drawable createRippleDrawable(final View v, final int color, Drawable pressed) {
+
+        Drawable drawable = v.getBackground();
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            return new RippleDrawable(new ColorStateList(
-                    new int[][]{new int[]{android.R.attr.state_pressed}},
-                    new int[]{rippleColor}
-            ), v.getBackground(), v.getBackground());
+
+            if (drawable instanceof RippleDrawable) {
+                drawable = ((RippleDrawable) drawable).getDrawable(0);
+
+                RippleDrawable rippleDrawable = new RippleDrawable(new ColorStateList(
+                        new int[][]{new int[]{android.R.attr.state_pressed}},
+                        new int[]{color}
+                ), drawable, null);
+
+                return rippleDrawable;
+            } else {
+                if (drawable == null) {
+                    drawable = new ColorDrawable(0);
+                    v.setBackground(drawable);
+                    RippleDrawable rippleDrawable = new RippleDrawable(new ColorStateList(
+                            new int[][]{new int[]{android.R.attr.state_pressed,0}},
+                            new int[]{color, 0}
+                    ), drawable, new ColorDrawable(0xffffffff));
+                    return rippleDrawable;
+                } else {
+                    RippleDrawable rippleDrawable = new RippleDrawable(new ColorStateList(
+                            new int[][]{new int[]{android.R.attr.state_pressed,0}},
+                            new int[]{color, 0}
+                    ), drawable, null);
+                    return rippleDrawable;
+                }
+
+
+
+
+            }
         } else {
 
-            Drawable d = v.getBackground();
+            if (drawable == null) {
+                drawable = new ColorDrawable(color);
+            }
 
-            if (d == null) {
-                d = new ColorDrawable(rippleColor);
+            if (pressed == null) {
+                pressed = drawable;
+            }
 
-                StateListDrawable sld = new StateListDrawable();
+
+            StateListDrawable sld = new StateListDrawable();
+            sld.addState(
+                    new int[] {
+                            android.R.attr.state_pressed,
+                    },
+                    pressed
+            );
+
+
+            if (v.getBackground() != null) {
                 sld.addState(
-                        new int[] {
-                                android.R.attr.state_pressed,
-                        },
-                        d
-                );
-
-                d = v.getBackground();
-
-                if (d == null) {
-                    d = new ColorDrawable(color);
-                }
-                d = d.getConstantState().newDrawable();
-
-                sld.addState(
-                        new int[] {
-                                0
-                        },
-                        d
-                );
-
-                return sld;
-
-            } else {
-
-
-                StateListDrawable sld = new StateListDrawable();
-                sld.addState(
-                        new int[] {
-                                android.R.attr.state_pressed,
-                        },
-                        new ColorDrawable(rippleColor)
-                );
-                sld.addState(
-                        new int[] {
+                        new int[]{
                                 0,
                         },
-                        new ColorDrawable(color)
+                        drawable
                 );
-
-                return sld;
             }
+
+            return sld;
         }
     }
+
+
 }

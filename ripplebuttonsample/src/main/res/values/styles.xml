@@ -1,38 +1,36 @@
 <resources>
 
     <style name="GreenTheme" parent="AppTheme">
-        <item name="actionBarStyle">@style/GreenThemeActionBar</item>
+        <item name="android:actionBarStyle">@style/GreenThemeActionBar</item>
     </style>
 
     <style name="BlueTheme" parent="AppTheme">
-        <item name="actionBarStyle">@style/BlueThemeActionBar</item>
+        <item name="android:actionBarStyle">@style/BlueThemeActionBar</item>
     </style>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="AppTheme.NoActionBar" parent="Base.Theme.AppCompat.Light">
+    <style name="AppTheme.NoActionBar" parent="android:Theme.Holo.Light.NoActionBar">
         <item name="android:windowNoTitle">true</item>
-        <item name="windowActionBar">false</item> <!-- For 2.x version  -->
         <item name="android:actionMenuTextColor">@color/black</item>
     </style>
 
     <!-- other stuff -->
 
-    <style name="GreenThemeActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+    <style name="GreenThemeActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
         <item name="android:background">@color/green_light</item>
-
-        <!-- Support library compatibility -->
-        <item name="background">@color/green_light</item>
     </style>
 
-    <style name="BlueThemeActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+    <style name="BlueThemeActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
         <item name="android:background">@color/blue_light</item>
+    </style>
 
-        <!-- Support library compatibility -->
-        <item name="background">@color/blue_light</item>
+    <style name="CustomButton" parent="android:Widget.Holo.Button">
+        <item name="colorControlHighlight">#ffffcc00</item>
+        <item name="colorButtonNormal">#ff00ccff</item>
     </style>
 
 

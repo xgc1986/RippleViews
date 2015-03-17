@@ -1,78 +1,65 @@
 
-# RippleButton 
+# RippleViews
 
-RippleButton is for Android 10+
+RippleViews for Android 16+
 
-RippleButton allows you to easily change the color of the button and the ripple effect without the need of creating styles or themes for every color you need.
+RippleViews allows you to add the new Android ripple effect in to your views easily and allowing color customization.
 
-RippleButton inherits from Button, it not generates any extra layouts and you can manage RippleButton instance as if it was an android Button.
+## Index
+1. [README & Installation & others](#)
+2. [RippleButton Widget](docs/RippleButton.md)
+3. [RippleImageButton Widget](docs/RippleImageButton.md)
+4. [Making views have ripple effect](docs/RippleDrawableHelper.md)
+5. [CHANGELOG](CHANGELOG.md)
+6. [Last words](docs/Thanks.md)
+7. [LICENSE](docs/LICENSE.md)
+
+## What does this library do and what I should care?
+Android Lollipop introduces material dessign, that's cool except for one thing, why bother to develop if most of the current smartphones doesn't support and Android have not developed a support library? Because of this same reason, this library allows you a back compatibility to older phones, but at least makes an equivalent behaviour to this versions.
+
+In other words, if in v21 appears a blue circle when you press then in v16 the button will have a blue color when you press, and that is obvious!. But google didn't care about that (thanks Android to become your own Internet Explorer 8). But that's not all, this library doesn't create extra animations and also is not adding a single extra layout to your views, making any loss of perfomance or maintanibility (if you want a button, you use a button, not a layout with an image view and a TextView or something like that). Maybe is not the best solution to the fragmentation problem, but is not my fault trying to help, it's Android's to  meke people like me trying to solve their issues.
 
 ## Installation
-
-in your build.gradle file
+In your build.gradle file
 
     dependencies {
         // ...
-        compile 'com.xgc1986.android:ripplebutton:0.3.0'
+        compile 'com.xgc1986.android:ripplebutton:0.4.0'
     }
 
+##Live Demo
+SOON...
+
 ## Usage
+minSdkVersion 16 (The ripple effect only works on API >= 21), and I told you why before ;)
 
-minSdkVersion 10 (The ripple effect only works on API >= 21)
-
-[![Android Arsenal](http://i.giphy.com/AxVvk2yAIHdcnMXDLW.gif)](demo)
-
+[![Demo](docs/img/main.gif)](demo)[![Demo](docs/img/DrawableHelperV212.gif)](demo)
 
 with xml:
 ```xml
 
-	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        tools:context=".MainActivity">
+    <!-- Default -->
+    <com.xgc1986.ripplebutton.widget.RippleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn1"
+        android:text="Default android button"/>
 
-        <!-- Default -->
-        <com.xgc1986.ripplebutton.widget.RippleButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btn1"
-            android:text="Default android button"/>
+    <!-- Edited in layout -->
+    <com.xgc1986.ripplebutton.widget.RippleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn2"
+        android:text="Android button modified in layout"
+        app:buttonColor="@android:color/black"
+        app:rippleColor="@android:color/white"/>
 
-        <!-- Edited in layout -->
-        <com.xgc1986.ripplebutton.widget.RippleButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btn2"
-            android:layout_below="@id/btn1"
-            android:text="Android button modified in layout"
-            android:textColor="@android:color/white"
-            app:buttonColor="@android:color/black"
-            app:rippleColor="@android:color/white"/>
-
-        <!-- Edited programatically -->
-        <com.xgc1986.ripplebutton.widget.RippleButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btn3"
-            android:layout_below="@id/btn2"
-            android:text="Android button modified programatically"/>
-
-        <!-- Toggle demo -->
-        <com.xgc1986.ripplebutton.widget.RippleButton
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_marginTop="30dp"
-            android:id="@+id/btn4"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/btn3"
-            android:text="This"/>
-    </RelativeLayout>
+    <!-- Edited programatically -->
+    <com.xgc1986.ripplebutton.widget.RippleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn3"
+        android:text="Android button modified programatically"/>
 ```
 
 with java:
@@ -85,32 +72,19 @@ with java:
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-	// Change color programatically
+	    // Change color programatically
         RippleButton rb = (RippleButton)findViewById(R.id.btn3);
-        rb.setColors(getResources().getColor(android.R.color.holo_red_light), getResources().getColor(android.R.color.holo_blue_light));
-
-	// Toggle demo
-	final int[] colors = {
-                getResources().getColor(android.R.color.holo_blue_light),
-                getResources().getColor(android.R.color.holo_red_light),
-                getResources().getColor(android.R.color.holo_green_light)
-        };
-        final String[] texts = {"AWESOME", "THIS", "IS"};
-
-        final RippleButton rb2 = (RippleButton)findViewById(R.id.btn4);
-        rb2.setColors(colors[1], colors[2]);
-        rb2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                i = (i + 1) % 3;
-                rb2.setColors(colors[(i + 1) % 3], colors[(i + 2) % 3]);
-                rb2.setText(texts[i]);
-            }
-        });
+        int buttonColor = getResources().getColor(android.R.color.holo_red_light);
+        int rippleColor = getResources().getColor(android.R.color.holo_blue_light);
+        rb.setColors(buttonColor, rippleColor);
     }
 ```
 
-## Other works
-<a href="https://github.com/xgc1986/ParallaxPagerTransformer" target="_blank">Parallax Pager Transformer</a>
+It was easy, check the next part to see more awesome stuff you can do with this library.
+
+
+Next: [RippleButton Widget](docs/RippleButton.md)
+
+
 
 

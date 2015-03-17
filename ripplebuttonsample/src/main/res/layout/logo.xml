@@ -4,6 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="150dp"
     android:scaleType="centerInside"
-    android:src="@drawable/xgc1986">
+    android:src="@mipmap/xgc1986">
 
 </ImageView>

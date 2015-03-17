@@ -16,11 +16,17 @@
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="android:Theme.Material.Light">
+
         <!-- Customize your theme here. -->
     </style>
 
     <style name="AppTheme.NoActionBar" parent="android:Theme.Material.Light.NoActionBar">
         <!-- Customize your theme here. -->
+    </style>
+
+    <style name="CustomButton" parent="android:Widget.Material.Button">
+        <item name="android:colorControlHighlight">#ffffcc00</item>
+        <item name="android:colorButtonNormal">#ff00ccff</item>
     </style>
 
 
