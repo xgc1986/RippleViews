@@ -30,6 +30,13 @@
         android:layout_marginTop="30dp"
         android:id="@+id/btn4"
         android:layout_centerHorizontal="true"
-        android:src="@mipmap/play"
+
         android:layout_below="@id/btn3"/>
+    <ImageButton
+        android:id="@+id/animatron"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/avd"
+        android:text="asd"
+        android:layout_below="@id/btn4"/>
 </RelativeLayout>

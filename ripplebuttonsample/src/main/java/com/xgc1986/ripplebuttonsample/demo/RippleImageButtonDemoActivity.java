@@ -2,6 +2,7 @@ package com.xgc1986.ripplebuttonsample.demo;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.graphics.drawable.Animatable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
@@ -38,7 +39,7 @@ public class RippleImageButtonDemoActivity extends Activity {
 
         final int[] images = {
                 R.mipmap.stop,
-                R.mipmap.play,
+                R.mipmap.playl,
                 R.mipmap.pause,
         };
 
@@ -57,6 +58,9 @@ public class RippleImageButtonDemoActivity extends Activity {
             getActionBar().setDisplayHomeAsUpEnabled(true);
             getActionBar().show();
         }
+
+        View v = findViewById(R.id.animatron);
+        ((Animatable)v.getBackground()).start();
     }
 
     @Override

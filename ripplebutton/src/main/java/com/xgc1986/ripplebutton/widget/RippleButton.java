@@ -44,6 +44,8 @@ public class RippleButton extends Button {
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public void setColors(int buttonColor, int controlHighlightColor) {
+        this.buttonColor = buttonColor;
+        rippleColor = controlHighlightColor;
         setButtonColor(buttonColor);
         setRippleColor(controlHighlightColor);
     }
@@ -60,13 +62,14 @@ public class RippleButton extends Button {
 
             if (drawable instanceof RippleDrawable) {
                 RippleDrawable rippleDrawable = (RippleDrawable) drawable;
-
                 ColorStateList colorStateList = new ColorStateList(
                         new int[][]{
-                                new int[]{android.R.attr.state_pressed}
+                                new int[]{android.R.attr.state_pressed},
+                                new int[]{0}
                         },
                         new int[]{
-                                rippleColor
+                                rippleColor,
+                                buttonColor
                         }
                 );
 
@@ -89,6 +92,7 @@ public class RippleButton extends Button {
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             if (drawable instanceof RippleDrawable) {
                 RippleDrawable rippleDrawable = (RippleDrawable) drawable.mutate().getConstantState().newDrawable();
+                rippleDrawable.setTint(color);
                 InsetDrawable insetDrawable = (InsetDrawable) rippleDrawable.getDrawable(0);
                 GradientDrawable gradientDrawable = (GradientDrawable) insetDrawable.getDrawable();
 
@@ -132,6 +136,8 @@ public class RippleButton extends Button {
 
         a.recycle();
 
+        buttonColor = nColor;
+        rippleColor = hColor;
         setButtonColor(nColor);
         setRippleColor(hColor);
 

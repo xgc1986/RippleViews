@@ -29,9 +29,13 @@ public class RippleDrawableHelper {
                 drawable = ((RippleDrawable) drawable).getDrawable(0);
 
                 RippleDrawable rippleDrawable = new RippleDrawable(new ColorStateList(
-                        new int[][]{new int[]{android.R.attr.state_pressed}},
-                        new int[]{color}
+                        new int[][]{
+                                new int[]{android.R.attr.state_pressed},
+                                new int[]{0}
+                        },
+                        new int[]{color, 0}
                 ), drawable, null);
+
 
                 return rippleDrawable;
             } else {
@@ -39,21 +43,23 @@ public class RippleDrawableHelper {
                     drawable = new ColorDrawable(0);
                     v.setBackground(drawable);
                     RippleDrawable rippleDrawable = new RippleDrawable(new ColorStateList(
-                            new int[][]{new int[]{android.R.attr.state_pressed,0}},
+                            new int[][]{
+                                    new int[]{android.R.attr.state_pressed},
+                                    new int[]{0}
+                            },
                             new int[]{color, 0}
                     ), drawable, new ColorDrawable(0xffffffff));
                     return rippleDrawable;
                 } else {
                     RippleDrawable rippleDrawable = new RippleDrawable(new ColorStateList(
-                            new int[][]{new int[]{android.R.attr.state_pressed,0}},
+                            new int[][]{
+                                    new int[]{android.R.attr.state_pressed},
+                                    new int[]{0}
+                            },
                             new int[]{color, 0}
                     ), drawable, null);
                     return rippleDrawable;
                 }
-
-
-
-
             }
         } else {
 

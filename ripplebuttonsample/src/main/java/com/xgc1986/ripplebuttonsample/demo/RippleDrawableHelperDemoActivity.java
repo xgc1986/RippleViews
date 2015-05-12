@@ -38,6 +38,8 @@ public class RippleDrawableHelperDemoActivity extends Activity {
                 // needed to make the ripple effect, because of google
             }
         });
+
+
     }
 
     @Override

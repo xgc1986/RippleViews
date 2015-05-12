@@ -1,6 +1,12 @@
 # Change Log
 
 ### *(2015-03-17)*
+ * FIX issue #3 Button background color not set on 5.1.1 (API22)
+
+--------------
+
+
+### *(2015-03-17)*
  * REMOVE GINGERBREAD COMPATIBLITY.
  * Added customization with styles.
  * Fix bugs with DrawableHelper and improve behaviour with previous Android versions.

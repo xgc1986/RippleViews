@@ -1,15 +1,66 @@
 <!-- res/drawable/heart.xml -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:height="256dp"
-    android:width="256dp"
-    android:viewportWidth="32"
-    android:viewportHeight="32">
-<path android:fillColor="#ff00"
-android:pathData="M20.5,9.5
-                        c-1.955,0,-3.83,1.268,-4.5,3
-                        c-0.67,-1.732,-2.547,-3,-4.5,-3
-                        C8.957,9.5,7,11.432,7,14
-                        c0,3.53,3.793,6.257,9,11.5
-                        c5.207,-5.242,9,-7.97,9,-11.5
-                        C25,11.432,23.043,9.5,20.5,9.5z" />
+    android:height="600px"
+    android:width="600px"
+    android:viewportHeight="600"
+    android:viewportWidth="600"
+    >
+    <group
+        android:translateX="-1114.29"
+        android:translateY="-471.429"
+        android:scaleX="2.14286"
+        android:scaleY="2.14286"
+        >
+        <path
+            android:fillColor="#ff96c6ff"
+
+            android:pathData="M800,240.305c0,-11.2141 -9.09079,-20.3049 -20.3049,-20.3049l-239.39,0c-11.2141,0 -20.3049,9.09079 -20.3049,20.3049l0,239.39c0,11.2141 9.09079,20.3049 20.3049,20.3049l239.39,0c11.2141,0 20.3049,-9.09079 20.3049,-20.3049l0,-239.39Z"
+            />
+    </group>
+
+    <group
+
+        android:translateX="-1000"
+        android:translateY="-400"
+        android:scaleX="2"
+        android:scaleY="2"
+        >
+        <path
+            android:fillColor="#20000000"
+            android:pathData="M778.245,500l-178.245,0l-60,-60l0,-20l40,0l-40,-40l0,-40l20,0l0,-20l20,0l0,-20l20,0l-20,-20l0,-20l20,0l40,40l40,0l0,-20l20,0l0,-20l20,0l80,80l0,138.245c0,12.0145 -9.73927,21.7543 -21.7552,21.7552Z"
+            />
+    </group>
+
+    <group
+        android:translateX="-1000"
+        android:translateY="-400"
+        android:scaleX="2"
+        android:scaleY="2"
+        >
+        <path
+            android:fillColor="#ff0000"
+
+            android:pathData="M600,380l0,20l100,0l0,-20l-100,0ZM600,320l0,20l40,5.68434e-14l0,-20l-40,0ZM660,320l0,20l40,0l0,-20l-40,0ZM700,280l0,20l20,0l0,20l20,0l0,20l20,0l0,40l-20,0l0,-20l-20,0l0,60l40,0l0,20l-80,0l0,-20l-60,0l0,20l-80,0l0,-20l40,0l0,-60l-20,0l0,20l-20,0l0,-40l20,0l0,-20l20,0l0,-20l20,0l0,-20l-20,0l0,-20l20,0l0,20l20,0l0,20l60,0l0,-20l20,0l0,-20l20,0l0,20l-20,0Z"
+            />
+    </group>
 </vector>
+
+
+
+
+<!--<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:height="64dp"
+    android:width="64dp"
+    android:viewportHeight="600"
+    android:viewportWidth="600">
+    <group
+        android:name="rotationGroup"
+        android:pivotX="300.0"
+        android:pivotY="300.0"
+        android:rotation="45.0" >
+        <path
+            android:name="v"
+            android:fillColor="#000000"
+            android:pathData="M348.3,78.8l0,166.3l-229.3,0l0,-67.4c-8.7,2.8 -18,4.3 -27.7,4.3c-50.1,0 -90.8,-40.6 -90.8,-90.8c0,-50.2 40.6,-90.7 90.8,-90.7c45.9,0 83.8,34.1 89.9,78.3Z" />
+    </group>
+</vector>-->
