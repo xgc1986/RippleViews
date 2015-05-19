@@ -98,16 +98,17 @@ public class RippleImageButton extends ImageButton {
     }
 
     private void manageAttibuteSet(AttributeSet attrs) {
+        if (!isInEditMode()) {
+            TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.RippleButton);
 
-        TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.RippleButton);
+            int nColor = a.getInt(R.styleable.RippleButton_buttonColor, buttonColor);
+            int hColor = a.getInt(R.styleable.RippleButton_rippleColor, rippleColor);
 
-        int nColor = a.getInt(R.styleable.RippleButton_buttonColor, buttonColor);
-        int hColor = a.getInt(R.styleable.RippleButton_rippleColor, rippleColor);
+            setButtonColor(nColor);
+            setRippleColor(hColor);
 
-        setButtonColor(nColor);
-        setRippleColor(hColor);
-
-        a.recycle();
+            a.recycle();
+        }
     }
 
     @Override
