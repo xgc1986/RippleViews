@@ -16,7 +16,7 @@
         android:id="@+id/btn2"
         android:text="Click me!"
         android:textColor="#ff000000"
-        app:rippleColor="#ffff4444"/>
+        app:rippleEffectColor="#ffff4444"/>
 
     <!-- Edited programatically -->
     <com.xgc1986.ripplebutton.widget.RippleButton

@@ -13,7 +13,6 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
-import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.xgc1986.ripplebutton.R;
@@ -23,7 +22,7 @@ public class RippleImageButton extends ImageButton {
 
     // TODO get style color;
     private int buttonColor = 0xffd6d7d7;
-    private int rippleColor = 0x40000000;
+    private int rippleEffectColor = 0x40000000;
 
     public RippleImageButton(Context context) {
         super(context);
@@ -48,12 +47,12 @@ public class RippleImageButton extends ImageButton {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public void setColors(int buttonColor, int controlHighlightColor) {
         setButtonColor(buttonColor);
-        setRippleColor(controlHighlightColor);
+        setRippleEffectColor(controlHighlightColor);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public void setRippleColor(final int color) {
-        rippleColor = color;
+    public void setRippleEffectColor(final int color) {
+        rippleEffectColor = color;
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Drawable drawable = getBackground();
 
@@ -65,7 +64,7 @@ public class RippleImageButton extends ImageButton {
                                 new int[]{android.R.attr.state_pressed}
                         },
                         new int[]{
-                                rippleColor
+                                rippleEffectColor
                         }
                 );
 
@@ -102,10 +101,10 @@ public class RippleImageButton extends ImageButton {
             TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.RippleButton);
 
             int nColor = a.getInt(R.styleable.RippleButton_buttonColor, buttonColor);
-            int hColor = a.getInt(R.styleable.RippleButton_rippleColor, rippleColor);
+            int hColor = a.getInt(R.styleable.RippleButton_rippleEffectColor, rippleEffectColor);
 
             setButtonColor(nColor);
-            setRippleColor(hColor);
+            setRippleEffectColor(hColor);
 
             a.recycle();
         }
@@ -123,9 +122,9 @@ public class RippleImageButton extends ImageButton {
                     getBackground().clearColorFilter();
                 }
             } else {
-                if (rippleColor != 0) {
+                if (rippleEffectColor != 0) {
                     setBackground(getResources().getDrawable(R.drawable.btn_default_normal_ripple));
-                    getBackground().setColorFilter(rippleColor, PorterDuff.Mode.MULTIPLY);
+                    getBackground().setColorFilter(rippleEffectColor, PorterDuff.Mode.MULTIPLY);
                 }
             }
         }

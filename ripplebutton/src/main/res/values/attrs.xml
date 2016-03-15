@@ -7,7 +7,7 @@
     </declare-styleable>
 
     <declare-styleable name="RippleButton">
-        <attr name="rippleColor" format="color"/>
+        <attr name="rippleEffectColor" format="color"/>
         <attr name="buttonColor" format="color"/>
     </declare-styleable>
 </resources>

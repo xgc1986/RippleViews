@@ -24,7 +24,7 @@ public class RippleButton extends Button {
 
     // TODO get style color;
     private int buttonColor = 0xffd6d7d7;
-    private int rippleColor = 0x40000000;
+    private int rippleEffectColor = 0x40000000;
 
     public RippleButton(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -45,16 +45,16 @@ public class RippleButton extends Button {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public void setColors(int buttonColor, int controlHighlightColor) {
         this.buttonColor = buttonColor;
-        rippleColor = controlHighlightColor;
+        rippleEffectColor = controlHighlightColor;
         setButtonColor(buttonColor);
-        setRippleColor(controlHighlightColor);
+        setRippleEffectColor(controlHighlightColor);
     }
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public void setRippleColor(final int color) {
-        rippleColor = color;
+    public void setRippleEffectColor(final int color) {
+        rippleEffectColor = color;
 
-        if (rippleColor == 0) {
+        if (rippleEffectColor == 0) {
             return;
         }
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -68,7 +68,7 @@ public class RippleButton extends Button {
                                 new int[]{0}
                         },
                         new int[]{
-                                rippleColor,
+                                rippleEffectColor,
                                 buttonColor
                         }
                 );
@@ -115,13 +115,13 @@ public class RippleButton extends Button {
                 int[] tAttrs = {android.R.attr.colorControlHighlight, android.R.attr.colorButtonNormal};
                 TypedArray ta = getContext().getTheme().obtainStyledAttributes(tAttrs);
                 buttonColor = ta.getColor(1, 0);
-                rippleColor = ta.getColor(0, 0);
+                rippleEffectColor = ta.getColor(0, 0);
                 ta.recycle();
             } else {
                 int[] tAttrs = {R.attr.colorControlHighlight, R.attr.colorButtonNormal};
                 TypedArray ta = getContext().getTheme().obtainStyledAttributes(s, tAttrs);
                 buttonColor = ta.getColor(1, 0);
-                rippleColor = ta.getColor(0, 0);
+                rippleEffectColor = ta.getColor(0, 0);
                 ta.recycle();
 
             }
@@ -129,14 +129,14 @@ public class RippleButton extends Button {
             TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.RippleButton);
 
             int nColor = a.getColor(R.styleable.RippleButton_buttonColor, buttonColor);
-            int hColor = a.getColor(R.styleable.RippleButton_rippleColor, rippleColor);
+            int hColor = a.getColor(R.styleable.RippleButton_rippleEffectColor, rippleEffectColor);
 
             a.recycle();
 
             buttonColor = nColor;
-            rippleColor = hColor;
+            rippleEffectColor = hColor;
             setButtonColor(nColor);
-            setRippleColor(hColor);
+            setRippleEffectColor(hColor);
         }
     }
 
@@ -152,9 +152,9 @@ public class RippleButton extends Button {
                     getBackground().clearColorFilter();
                 }
             } else {
-                if (rippleColor != 0) {
+                if (rippleEffectColor != 0) {
                     setBackground(getResources().getDrawable(R.drawable.btn_default_normal_ripple));
-                    getBackground().setColorFilter(rippleColor, PorterDuff.Mode.MULTIPLY);
+                    getBackground().setColorFilter(rippleEffectColor, PorterDuff.Mode.MULTIPLY);
                 }
             }
         }
