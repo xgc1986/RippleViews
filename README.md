@@ -52,7 +52,7 @@ with xml:
         android:id="@+id/btn2"
         android:text="Android button modified in layout"
         app:buttonColor="@android:color/black"
-        app:rippleColor="@android:color/white"/>
+        app:rippleEffectColor="@android:color/white"/>
 
     <!-- Edited programatically -->
     <com.xgc1986.ripplebutton.widget.RippleButton
@@ -75,8 +75,8 @@ with java:
 	    // Change color programatically
         RippleButton rb = (RippleButton)findViewById(R.id.btn3);
         int buttonColor = getResources().getColor(android.R.color.holo_red_light);
-        int rippleColor = getResources().getColor(android.R.color.holo_blue_light);
-        rb.setColors(buttonColor, rippleColor);
+        int rippleEffectColor = getResources().getColor(android.R.color.holo_blue_light);
+        rb.setColors(buttonColor, rippleEffectColor);
     }
 ```
 

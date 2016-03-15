@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/btn2"
         android:src="@android:drawable/stat_sys_headset"
-        app:rippleColor="#ffff4444"/>
+        app:rippleEffectColor="#ffff4444"/>
 
     <!-- Edited programatically -->
     <com.xgc1986.ripplebutton.widget.RippleImageButton

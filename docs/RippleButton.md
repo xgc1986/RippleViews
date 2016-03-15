@@ -14,7 +14,7 @@ Inherits from [android.widget.Button](http://developer.android.com/reference/and
 | Attribute  | Type | Description |
 | ------------- | ------------- | ------------- |
 | app:buttonColor  | color  | The color of the button. |
-| app:rippleColor  | color  | The color of the ripple effect in v21, in previous versions is the color of the button while pressed. |
+| app:rippleEffectColor  | color  | The color of the ripple effect in v21, in previous versions is the color of the button while pressed. |
 
 ###Style
 | Attribute  | Type | Description |
@@ -30,8 +30,8 @@ Inherits from [android.widget.Button](http://developer.android.com/reference/and
 | Method  | Description |
 | ------------- | ------------- |
 | setButtonColor(int color)  | The color of the button. |
-| setRippleColor(int color)  | The color of the ripple effect in v21, in previous versions is the color of the button while pressed. |
-| setColors(int buttonColor, int rippleColor)  | The color of the button and the ripple effect in v21, in previous versions is the color of the button while pressed. |
+| setrippleEffectColor(int color)  | The color of the ripple effect in v21, in previous versions is the color of the button while pressed. |
+| setColors(int buttonColor, int rippleEffectColor)  | The color of the button and the ripple effect in v21, in previous versions is the color of the button while pressed. |
 
 ##Examples
 From java
@@ -49,7 +49,7 @@ From java
 
 	//java
 	int buttonColor = 0xff33b5e5; //holo_blue_light
-	int rippleColor = 0x80ffffff; //transparent white
+	int rippleEffectColor = 0x80ffffff; //transparent white
 	final RippleButton rb = (RippleButton)findViewById(R.id.rippleButton);
 	rb.setColors(colors[1], colors[2]);
 ```
@@ -63,7 +63,7 @@ From xml
         android:layout_height="wrap_content"
         android:id="@+id/rippleButton"
         android:text="Click me!"
-        app:rippleColor="#ff33b5e5"
+        app:rippleEffectColor="#ff33b5e5"
         app:buttonColor="#80ffffff"
         app:/>
 ```
