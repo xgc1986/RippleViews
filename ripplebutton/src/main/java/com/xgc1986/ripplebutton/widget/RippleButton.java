@@ -114,40 +114,36 @@ public class RippleButton extends Button {
     }
 
     private void manageAttibuteSet(AttributeSet attrs) {
+        if (!isInEditMode()) {
+            int s = attrs.getStyleAttribute();
 
-        int s = attrs.getStyleAttribute();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                int[] tAttrs = {android.R.attr.colorControlHighlight, android.R.attr.colorButtonNormal};
+                TypedArray ta = getContext().getTheme().obtainStyledAttributes(tAttrs);
+                buttonColor = ta.getColor(1, 0);
+                rippleColor = ta.getColor(0, 0);
+                ta.recycle();
+            } else {
+                int[] tAttrs = {R.attr.colorControlHighlight, R.attr.colorButtonNormal};
+                TypedArray ta = getContext().getTheme().obtainStyledAttributes(s, tAttrs);
+                buttonColor = ta.getColor(1, 0);
+                rippleColor = ta.getColor(0, 0);
+                ta.recycle();
 
+            }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            int[] tAttrs = {android.R.attr.colorControlHighlight, android.R.attr.colorButtonNormal};
-            TypedArray ta = getContext().getTheme().obtainStyledAttributes(tAttrs);
-            buttonColor = ta.getColor(1, 0);
-            rippleColor = ta.getColor(0, 0);
-            ta.recycle();
-        } else {
-            int[] tAttrs = {R.attr.colorControlHighlight, R.attr.colorButtonNormal};
-            TypedArray ta = getContext().getTheme().obtainStyledAttributes(s, tAttrs);
-            buttonColor = ta.getColor(1, 0);
-            rippleColor = ta.getColor(0, 0);
-            ta.recycle();
+            TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.RippleButton);
 
+            int nColor = a.getColor(R.styleable.RippleButton_buttonColor, buttonColor);
+            int hColor = a.getColor(R.styleable.RippleButton_rippleColor, rippleColor);
+
+            a.recycle();
+
+            buttonColor = nColor;
+            rippleColor = hColor;
+            setButtonColor(nColor);
+            setRippleColor(hColor);
         }
-
-
-
-        TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.RippleButton);
-
-        int nColor = a.getColor(R.styleable.RippleButton_buttonColor, buttonColor);
-        int hColor = a.getColor(R.styleable.RippleButton_rippleColor, rippleColor);
-
-        a.recycle();
-
-        buttonColor = nColor;
-        rippleColor = hColor;
-        setButtonColor(nColor);
-        setRippleColor(hColor);
-
-
     }
 
     @Override
