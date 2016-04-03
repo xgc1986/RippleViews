@@ -2,6 +2,7 @@ package com.xgc1986.ripplebuttonsample.demo;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -44,6 +45,7 @@ public class RippleButtonDemoActivity extends Activity {
         rb.setColors(colors[0], 0xffffffff);
 
         final RippleButton rb2 = (RippleButton) findViewById(R.id.btn4);
+
         rb2.setColors(colors[1], colors2[2]);
         rb2.setOnClickListener(new View.OnClickListener() {
             @Override

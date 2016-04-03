@@ -52,6 +52,7 @@ public class RippleButton extends Button {
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     public void setRippleColor(final int color) {
+
         rippleColor = color;
 
         if (rippleColor == 0) {
@@ -60,14 +61,19 @@ public class RippleButton extends Button {
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Drawable drawable = getBackground();
 
+
             if (drawable instanceof RippleDrawable) {
                 RippleDrawable rippleDrawable = (RippleDrawable) drawable;
                 ColorStateList colorStateList = new ColorStateList(
                         new int[][]{
                                 new int[]{android.R.attr.state_pressed},
+                                new int[]{android.R.attr.state_focused},
+                                new int[]{android.R.attr.state_activated},
                                 new int[]{0}
                         },
                         new int[]{
+                                rippleColor,
+                                rippleColor,
                                 rippleColor,
                                 buttonColor
                         }

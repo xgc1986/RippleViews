@@ -10,7 +10,7 @@ def _name = 'RippleButton'
 def _name2 = "Ripple Button"
 def _description = 'Easy Customizable Material Button'
 def _labels = ['android', 'material', 'ripple', 'button']
-def _version = "0.4.1"
+def _version = "0.5.0"
 
 group = "com.xgc1986.android"                                            // Maven Group ID for the artifact
 version _version
@@ -19,13 +19,13 @@ Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "21.1.2"
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 21
+        targetSdkVersion 23
         versionCode 1
-        versionName version
+        versionName _version
     }
     buildTypes {
     }
